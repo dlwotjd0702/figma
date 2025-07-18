@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 119c1bd3601648f28a252a6030e067b6, type: 3}
+  m_Name: UnityFigmaBridgeSettings
+  m_EditorClassIdentifier: 
+  DocumentUrl: https://www.figma.com/design/dopcYcB623iHdP0Uj1ApbG/%EB%A0%88%EC%A0%84%EB%93%9C-%EC%98%A4%EB%B8%8C-%ED%95%B4%EB%A8%B8?node-id=0-1&t=UVcs5syrsi0YuDtQ-0
+  BuildPrototypeFlow: 1
+  RunTimeAssetsScenePath: Assets/Scenes/SampleScene.unity
+  EnableAutoLayout: 0
+  ScreenBindingNamespace: 
+  ServerRenderImageScale: 3
+  EnableGoogleFontsDownloads: 1
+  CreateScreenNameCSharpFile: 0
+  GenerateNodesMarkedForExport: 1
+  OnlyImportSelectedPages: 0
+  PageDataList: []
