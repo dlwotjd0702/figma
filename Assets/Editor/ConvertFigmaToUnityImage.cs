@@ -97,3 +97,53 @@ public class ConvertFigmaToUnityUGUI : EditorWindow
         AssetDatabase.Refresh();
     }
 }
+
+
+
+
+public class RemoveContentSizeFitterAndSetWidth : EditorWindow
+{
+    [MenuItem("Tools/ContentSizeFitter 제거+Rect Width 300")]
+    public static void ShowWindow()
+    {
+        GetWindow<RemoveContentSizeFitterAndSetWidth>(false, "CSF 제거+Rect 300");
+    }
+
+    private void OnGUI()
+    {
+        GUILayout.Label("씬 내 ContentSizeFitter 제거 및 RectTransform width=300 적용", EditorStyles.boldLabel);
+        if (GUILayout.Button("실행", GUILayout.Height(35)))
+        {
+            RemoveAndResize();
+        }
+    }
+
+    private static void RemoveAndResize()
+    {
+        var fitters = GameObject.FindObjectsOfType<ContentSizeFitter>(true);
+        int count = 0;
+
+        foreach (var fitter in fitters)
+        {
+            if (fitter == null) continue;
+
+            var go = fitter.gameObject;
+            var rect = go.GetComponent<RectTransform>();
+            if (rect == null) continue;
+
+            Undo.RegisterCompleteObjectUndo(go, "ContentSizeFitter 제거+Rect 300");
+
+            // ContentSizeFitter 제거
+            Undo.DestroyObjectImmediate(fitter);
+
+            // width(넓이)만 300으로 고정
+            var size = rect.sizeDelta;
+            size.x = 300;
+            rect.sizeDelta = size;
+
+            count++;
+        }
+
+        EditorUtility.DisplayDialog("완료", $"변경된 개수: {count}\n(ContentSizeFitter 제거 및 width=300 적용)", "확인");
+    }
+}
